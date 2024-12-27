@@ -12,7 +12,7 @@ This project integrates multiple components developed over previous projects int
 - There are `depends_on` clauses in the `docker-compose.yml` which make sure that the Consumer and Predictor services only start once the Kafka and PostgreSQL services are confirmed healthy. Health checks are also defined for Kafka, PostgreSQL, Consumer, and Predictor which check periodically to verify service availability. 
 - Each service is configured with a `restart: on-failure policy`. This improves the reliability of the pipeline
 - The pre-trained `anomaly_detector_model` is included in the predictor image, so no extra steps are needed in deployment to load the model and the predictor immediately has access to the trained pipeline for generating anomaly predictions.
-- The streamed data is also used to create a dshboard of all visualization, being updated every 10 second with newly streamed data
+- The streamed data is also used to create a dshboard of all visualization, being updated every 30 second with newly streamed data
 
 ##### Kafka:
 - Provides a health_events topic
@@ -45,7 +45,7 @@ This project integrates multiple components developed over previous projects int
 - The first bar chart displays the historical event counts by severity for each location for all the data.
 - The second chart displays the counts for each event type within the data. The pie chart below displays the event type split within the data for a clearer visualization.
 - The map is our real time visualization, displaying the most recent event for every location on a map. The marker is colored to match the severity
-- The dashboard is updated evey 10 seconds with the new data streamed in.
+- The dashboard is updated evey 30 seconds with the new data streamed in.
 
 
 #
